@@ -39,6 +39,7 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'account',
+    'social.apps.django_app.default', 
 )
 
 MIDDLEWARE_CLASSES = (
@@ -111,3 +112,16 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+    'account.authentication.EmailAuthBackend',
+    'social.backends.twitter.TwitterOAuth',
+    'social.backends.google.GoogleOAuth2',
+)
+
+SOCIAL_AUTH_TWITTER_KEY = 'MalSgycDUMzHBfc6OqMJtt11n'
+SOCIAL_AUTH_TWITTER_SECRET = '1pfifBZ2U4EjMqHOVXX7XpuhkuzJHSmND5796pfLB3VBAdnT8S'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '731082578776-b1hd1og7ooa047jao9iu2iso9nnstgf2.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '1eu7i0NeRcuUn73vghvb0DpT'
